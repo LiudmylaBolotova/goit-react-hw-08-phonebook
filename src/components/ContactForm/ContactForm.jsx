@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import * as contactsOperations from '../../redux/contactsOperations';
-import { getContacts } from 'redux/selector';
+import * as contactsOperations from '../../redux/contacts/contactsOperations';
+import { getContacts } from 'redux/contacts/selectors';
 import { BtnForm, Form, InputForm, TitleForm } from './ContactForm.styled';
 
-export function ContactForm() {
+ function ContactForm() {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
 
@@ -36,9 +36,9 @@ export function ContactForm() {
           <InputForm
             type="text"
             name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
+            // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            // required
           />
         </label>
         <TitleForm>Number</TitleForm>
@@ -46,13 +46,15 @@ export function ContactForm() {
           <InputForm
             type="tel"
             name="number"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
+            // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            // title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            // required
           />
         </label>
         <BtnForm type="submit">Add contact</BtnForm>
       </Form>
     </div>
   );
-}
+};
+
+export default ContactForm;

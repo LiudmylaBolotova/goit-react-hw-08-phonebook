@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import * as contactsOperations from '../../redux/contactsOperations';
+import * as contactsOperations from '../../redux/contacts/contactsOperations';
 import { useSelector, useDispatch } from 'react-redux';
-import { getContacts, getFilter } from 'redux/selector';
+import { getContacts, getFilter } from 'redux/contacts/selectors';
 import { BtnList, Element, ElementString } from './ElementList.styled';
 
 const ElementList = () => {

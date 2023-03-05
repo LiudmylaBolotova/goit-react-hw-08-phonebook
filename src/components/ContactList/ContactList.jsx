@@ -1,8 +1,10 @@
 import ElementList from 'components/ElementList';
 import { List } from './ContactList.styled';
 
-export const ContactList = () => (
+const ContactList = () => (
   <List>
     <ElementList />
   </List>
 );
+
+export default ContactList;

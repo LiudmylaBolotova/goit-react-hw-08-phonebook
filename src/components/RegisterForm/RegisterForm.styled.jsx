@@ -3,12 +3,14 @@ import styled from 'styled-components';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  margin-right: auto;
+  margin-left: auto;
 
   border: ${p => p.theme.borders.normal};
   border-radius: ${p => p.theme.radii.formRound}px;
   width: ${p => p.theme.sizes.width[4]}px;
+  padding: 20px;
   background-color: ${p => p.theme.colors.twoBackgroundColor};
 `;
 
@@ -28,9 +30,12 @@ export const InputForm = styled.input`
   }
 `;
 
-export const TitleForm = styled.h2`
+export const TitleForm = styled.label`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
   font-size: ${p => p.theme.fontSizes[1]}px;
-  margin: ${p => p.theme.space[3]}px;
 `;
 
 export const BtnForm = styled.button`
@@ -57,4 +62,3 @@ export const BtnForm = styled.button`
     color: ${p => p.theme.colors.twoTextColor};
   }
 `;
-

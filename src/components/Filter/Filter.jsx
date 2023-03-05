@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setFilter } from 'redux/filterSlice';
-import { getFilter } from 'redux/selector';
+import { setFilter } from 'redux/contacts/filterSlice';
+import { getFilter } from 'redux/contacts/selectors';
 import { InputForm, ButtonFilter } from './Filter.styled';
 
-export const Filter = () => {
+const Filter = () => {
   const ref = useRef(null);
   const dispatch = useDispatch();
   const filter = useSelector(getFilter);
@@ -34,3 +34,5 @@ export const Filter = () => {
     </div>
   );
 };
+
+export default Filter;
