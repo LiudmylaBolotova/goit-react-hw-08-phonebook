@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { signupUser } from '../../redux/auth/userOperations';
+import { signupUser } from 'redux/auth/userOperations';
 import { BtnForm, Form, InputForm, TitleForm } from './RegisterForm.styled';
 
 export const RegisterForm = () => {

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilter } from 'redux/contacts/filterSlice';
-import { getFilter } from 'redux/contacts/selectors';
+import { getFilter } from '../../redux/selectors';
 import { InputForm, ButtonFilter } from './Filter.styled';
 
 const Filter = () => {

@@ -10,12 +10,11 @@ export const StyledElement = styled.div`
   transition: 250ms color ease;
 `;
 
-export const UserMail = styled.p`
+export const UserName = styled.p`
   margin-right: 10px;
   margin-left: 10px;
   font-weight: 500;
   font-size: 20px;
-  
 `;
 
 export const LogoutBtn = styled.button`

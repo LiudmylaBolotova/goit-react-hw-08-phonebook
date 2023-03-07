@@ -5,7 +5,7 @@ import {
   signupUser,
   loginUser,
   logoutUser,
-  currentUser,
+  refreshUser,
 } from './userOperations';
 
 const initialState = {
@@ -13,43 +13,77 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  error: null,
 };
 
 const authSlice = createSlice({
-  name: 'auth',
+  name: 'user',
   initialState,
   extraReducers: {
+    // signUser
+    [signupUser.pending](state, action) {
+      state.isRefreshing = true;
+    },
+
     [signupUser.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
+
+    [signupUser.rejected](state, action) {
+      state.error = action.payload;
+    },
+
+    // loginUser
+    [loginUser.pending](state, action) {
+      state.isRefreshing = true;
+    },
+
     [loginUser.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
+
+    [loginUser.rejected](state) {
+      state.isRefreshing = false;
+    },
+
+    // logoutUser
+    [logoutUser.pending](state, action) {
+      state.isRefreshing = true;
+    },
+
     [logoutUser.fulfilled](state) {
       state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
     },
-    [currentUser.pending](state) {
+
+    [logoutUser.rejected](state) {
+      state.isRefreshing = false;
+    },
+
+    // refreshUser
+    [refreshUser.pending](state) {
       state.isRefreshing = true;
     },
-    [currentUser.fulfilled](state, action) {
-      state.user = action.payload;
+
+    [refreshUser.fulfilled](state, action) {
+      state.user = action.payload.user;
       state.isLoggedIn = true;
       state.isRefreshing = false;
     },
-    [currentUser.rejected](state) {
+
+    [refreshUser.rejected](state) {
       state.isRefreshing = false;
     },
   },
 });
 
 const persistConfig = {
-  key: 'auth',
+  key: 'root',
   storage,
   whitelist: ['token'],
 };
@@ -58,5 +92,3 @@ export const persistedUsersReducer = persistReducer(
   persistConfig,
   authSlice.reducer
 );
-
-

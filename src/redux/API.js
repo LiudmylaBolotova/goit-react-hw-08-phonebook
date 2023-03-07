@@ -5,7 +5,7 @@ axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 // Utils
 
 export const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  axios.defaults.headers.common.Authorization = `${token}`;
 };
 
 export const clearAuthHeader = () => {
@@ -34,24 +34,3 @@ export async function deleteContact(contactId) {
   return res.data;
 }
 
-// User
-
-export async function signupUser({name, email, password}) {
-  const res = await axios.post(`/users/signup`);
-  return res.data;
-}
-
-export async function loginUser({ email, password }) {
-  const res = await axios.post(`/users/login`);
-  return res.data;
-}
-
-export async function logoutUser() {
-  const res = await axios.post(`/users/logout`);
-  return res.data;
-}
-
-export async function currentUser() {
-  const res = await axios.get(`/users/current`);
-  return res.data;
-}

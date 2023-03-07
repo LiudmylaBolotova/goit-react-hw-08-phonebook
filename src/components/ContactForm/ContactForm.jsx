@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as contactsOperations from '../../redux/contacts/contactsOperations';
-import { getContacts } from 'redux/contacts/selectors';
+import { getContacts } from '../../redux/selectors';
 import { BtnForm, Form, InputForm, TitleForm } from './ContactForm.styled';
 
- function ContactForm() {
+function ContactForm() {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
 
@@ -55,6 +55,6 @@ import { BtnForm, Form, InputForm, TitleForm } from './ContactForm.styled';
       </Form>
     </div>
   );
-};
+}
 
 export default ContactForm;

@@ -11,7 +11,6 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-
 export const store = configureStore({
   reducer: {
     contacts: contactsReducer,

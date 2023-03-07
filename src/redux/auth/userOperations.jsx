@@ -1,15 +1,16 @@
-import * as contactsAPI from '../contacts/contactsAPI';
+import * as API from '../API';
+import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-// User
+import { toast } from 'react-hot-toast';
 
 export const signupUser = createAsyncThunk(
-  'auth/register',
+  'user/register',
   async (credentials, thunkAPI) => {
     try {
-      const signupUser = await contactsAPI.signupUser();
-      contactsAPI.setAuthHeader(signupUser.data.token);
-      return signupUser.data;
+      const res = await axios.post('/users/signup', credentials);
+
+      API.setAuthHeader(res.data.token);
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -17,32 +18,34 @@ export const signupUser = createAsyncThunk(
 );
 
 export const loginUser = createAsyncThunk(
-  'auth/login',
+  'user/login',
   async (credentials, thunkAPI) => {
     try {
-      const loginUser = await contactsAPI.loginUser();
-      contactsAPI.setAuthHeader(loginUser.data.token);
-      return loginUser.data;
+      const res = await axios.post('/users/login', credentials);
+      API.setAuthHeader(res.data.token);
+      return res.data;
     } catch (error) {
+      toast.error('Check e-mail or password');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export const logoutUser = createAsyncThunk(
-  'auth/logout',
+  'user/logout',
   async (_, thunkAPI) => {
     try {
-      await contactsAPI.logoutUser();
-      contactsAPI.clearAuthHeader();
+      const res = await axios.post('/users/logout');
+      API.clearAuthHeader();
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-export const currentUser = createAsyncThunk(
-  'auth/refresh',
+export const refreshUser = createAsyncThunk(
+  'user/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
@@ -52,9 +55,9 @@ export const currentUser = createAsyncThunk(
     }
 
     try {
-      contactsAPI.setAuthHeader(persistedToken);
-      const currentUser = await contactsAPI.currentUser();
-      return currentUser.data;
+      API.setAuthHeader(persistedToken);
+      const res = await axios.get('/users/current');
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

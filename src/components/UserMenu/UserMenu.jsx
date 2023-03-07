@@ -1,10 +1,16 @@
-import { LogoutBtn, UserMail, StyledElement } from './UserMenu.styled';
+import { LogoutBtn, UserName, StyledElement } from './UserMenu.styled';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from 'redux/auth/userOperations';
+import { useAuth } from 'hooks/useAuth';
 
 export const UserMenu = () => {
+  const dispatch = useDispatch();
+  const { user } = useAuth();
+
   return (
     <StyledElement>
-      <UserMail>mango@mail.com</UserMail>
-      <LogoutBtn>Logout</LogoutBtn>
+      <UserName>{user.name}</UserName>
+      <LogoutBtn onClick={() => dispatch(logoutUser())}>Logout</LogoutBtn>
     </StyledElement>
   );
 };
