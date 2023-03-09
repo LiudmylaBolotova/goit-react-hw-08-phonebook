@@ -7,10 +7,16 @@ export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
 
+  const handleLogOut = () => {
+   dispatch(logoutUser());
+ }
+
   return (
     <StyledElement>
       <UserName>{user.name}</UserName>
-      <LogoutBtn onClick={() => dispatch(logoutUser())}>Logout</LogoutBtn>
+      <LogoutBtn type="submit" onClick={handleLogOut}>
+        Logout
+      </LogoutBtn>
     </StyledElement>
   );
 };

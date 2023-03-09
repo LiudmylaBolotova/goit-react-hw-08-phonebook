@@ -32,7 +32,6 @@ export const updateContact = createAsyncThunk(
   async (contactId, { rejectWithValue }) => {
     try {
       const updateContact = await API.updateContact(contactId);
-      API.setAuthHeader(updateContact.data.token);
       return updateContact;
     } catch (err) {
       return rejectWithValue(err.response.data);

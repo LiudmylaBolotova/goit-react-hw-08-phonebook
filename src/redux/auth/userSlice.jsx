@@ -21,7 +21,7 @@ const authSlice = createSlice({
   initialState,
   extraReducers: {
     // signUser
-    [signupUser.pending](state, action) {
+    [signupUser.pending](state, _) {
       state.isRefreshing = true;
     },
 
@@ -46,8 +46,9 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
     },
 
-    [loginUser.rejected](state) {
+    [loginUser.rejected](state, action) {
       state.isRefreshing = false;
+      state.error = action.payload;
     },
 
     // logoutUser
@@ -61,8 +62,9 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
     },
 
-    [logoutUser.rejected](state) {
+    [logoutUser.rejected](state, action) {
       state.isRefreshing = false;
+      state.error = action.payload;
     },
 
     // refreshUser
@@ -71,13 +73,14 @@ const authSlice = createSlice({
     },
 
     [refreshUser.fulfilled](state, action) {
-      state.user = action.payload.user;
+      state.user = action.payload;
       state.isLoggedIn = true;
       state.isRefreshing = false;
     },
 
-    [refreshUser.rejected](state) {
+    [refreshUser.rejected](state, action) {
       state.isRefreshing = false;
+      state.error = action.payload;
     },
   },
 });

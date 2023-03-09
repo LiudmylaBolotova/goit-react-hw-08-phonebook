@@ -1,13 +1,27 @@
 import { useDispatch } from 'react-redux';
 import { signupUser } from 'redux/auth/userOperations';
+import toast from 'react-hot-toast';
 import { BtnForm, Form, InputForm, TitleForm } from './RegisterForm.styled';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const name = form.elements.name.value;
+    const email = form.elements.email.value;
+    const password = form.elements.password.value;
+    if (!name) {
+      return toast.error('Enter your name!');
+    };
+    if (!email) {
+      return toast.error('Enter your email!');
+    };
+    if (!password) {
+      return toast.error('Enter your password!');
+    }
+    
     dispatch(
       signupUser({
         name: form.elements.name.value,

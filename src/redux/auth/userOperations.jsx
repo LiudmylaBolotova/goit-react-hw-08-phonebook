@@ -25,7 +25,7 @@ export const loginUser = createAsyncThunk(
       API.setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      toast.error('Check e-mail or password');
+      toast.error('Enter email and password');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -48,16 +48,15 @@ export const refreshUser = createAsyncThunk(
   'user/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-
+    const persistedToken = state.user.token;
     if (persistedToken === null) {
-      return thunkAPI.rejectWithValue('Unable to fetch user');
+      toast.error('User is not found');
     }
 
     try {
       API.setAuthHeader(persistedToken);
-      const res = await axios.get('/users/current');
-      return res.data;
+      const { data } = await axios.get('/users/current');
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

@@ -5,9 +5,9 @@ import { BtnForm, Form, InputForm, TitleForm } from './LoginForm.styled';
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.currentTarget;
     dispatch(
       loginUser({
         email: form.elements.email.value,
