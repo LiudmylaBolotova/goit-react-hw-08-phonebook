@@ -1,20 +1,24 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const StyledElement = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-weight: 500;
-  font-size: 25px;
-  text-decoration: none;
-  transition: 250ms color ease;
+
+  margin-right: ${p => p.theme.space[4]}px;
 `;
 
-export const UserName = styled.p`
-  margin-right: 10px;
-  margin-left: 10px;
-  font-weight: 500;
-  font-size: 20px;
+export const UserName = styled(NavLink)`
+  text-decoration: none;
+  color: ${p => p.theme.colors.text};
+
+  &:first-child {
+    margin-right: ${p => p.theme.space[5]}px;
+  }
+
+  font-size: ${p => p.theme.fontSizes[1]}px;
+  font-weight: ${p => p.theme.fontWeights.bold};
 `;
 
 export const LogoutBtn = styled.button`
@@ -23,9 +27,6 @@ export const LogoutBtn = styled.button`
 
   border: ${p => p.theme.borders.small};
   border-radius: ${p => p.theme.radii.btnRound}px;
-
-  margin-top: ${p => p.theme.space[5]}px;
-  margin-bottom: ${p => p.theme.space[5]}px;
 
   cursor: pointer;
 

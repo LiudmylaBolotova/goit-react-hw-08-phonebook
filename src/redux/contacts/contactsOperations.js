@@ -31,8 +31,8 @@ export const updateContact = createAsyncThunk(
   'contacts/updateContact',
   async (contactId, { rejectWithValue }) => {
     try {
-      const updateContact = await API.updateContact(contactId);
-      return updateContact;
+      const res = await API.updateContact(contactId);
+      return res.data;
     } catch (err) {
       return rejectWithValue(err.response.data);
     }

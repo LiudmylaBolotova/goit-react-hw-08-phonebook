@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+export const Nav = styled.nav`
+  margin-left: ${p => p.theme.space[4]}px;
+`;
+
 export const ItemsLink = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
@@ -9,6 +13,6 @@ export const ItemsLink = styled(NavLink)`
   color: ${p => p.theme.colors.text};
 
   &:first-child {
-    margin-right: 20px;
+    margin-right: ${p => p.theme.space[5]}px;
   }
 `;

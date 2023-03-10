@@ -50,13 +50,12 @@ export const refreshUser = createAsyncThunk(
     const state = thunkAPI.getState();
     const persistedToken = state.user.token;
     if (persistedToken === null) {
-      toast.error('User is not found');
+      return thunkAPI.rejectWithValue('No valid token');
     }
-
+    API.setAuthHeader(persistedToken);
     try {
-      API.setAuthHeader(persistedToken);
-      const { data } = await axios.get('/users/current');
-      return data;
+      const res = await axios.get('/users/current');
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
