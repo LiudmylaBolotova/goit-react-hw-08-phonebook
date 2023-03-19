@@ -1,5 +1,5 @@
-const Home = () => {
-    return <p>My phonebook</p>
-};
+import styled from 'styled-components';
 
-export default Home;
+export const BackgroundStyled = styled.img`
+  width: 100%;
+`;

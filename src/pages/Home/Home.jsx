@@ -1,11 +1,9 @@
-import Image from '../../components/Images/Image.jsx';
+import { BackgroundStyled } from './Home.styled';
+import backGroundImg from './backGroundImg.png';
+
+
 const Home = () => {
-    return (
-        <div>
-         
-        <Image/>
-     </div>
-    )
+    return <BackgroundStyled src={backGroundImg} alt="image" />;
 };
 
 export default Home;

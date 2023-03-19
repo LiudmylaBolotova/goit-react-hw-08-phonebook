@@ -70,9 +70,15 @@ const contactsSlice = createSlice({
     },
 
     [updateContact.fulfilled]: (state, action) => {
-      state.contacts.items = action.payload;
       state.contacts.isLoading = false;
       state.contacts.error = null;
+    //  console.log(state.contacts.items = action.payload)
+      const contact = state.contacts.items.find(
+        contact => contact.id === action.payload.id
+      );
+      console.log(contact, action.payload)
+      // contact.name = action.payload.name;
+      // contact.number = action.payload.number;
     },
 
     [updateContact.rejected]: (state, action) => {
@@ -81,7 +87,5 @@ const contactsSlice = createSlice({
     },
   },
 });
-
-
 
 export const contactsReducer = contactsSlice.reducer;
