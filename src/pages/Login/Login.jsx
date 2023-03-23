@@ -5,7 +5,6 @@ const Login = () => {
     <div>
       <title>Login</title>
       <LoginForm />
-      
     </div>
   );
 };

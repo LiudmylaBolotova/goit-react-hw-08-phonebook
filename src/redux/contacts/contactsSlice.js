@@ -76,7 +76,7 @@ const contactsSlice = createSlice({
       const contact = state.contacts.items.find(
         contact => contact.id === action.payload.id
       );
-      console.log(contact, action.payload)
+      console.log(contact, action.payload);
       // contact.name = action.payload.name;
       // contact.number = action.payload.number;
     },

@@ -12,3 +12,7 @@ export const ItemsLink = styled(NavLink)`
     margin-right: 20px;
   }
 `;
+
+export const ListAuth = styled.div`
+  margin-right: ${p => p.theme.space[4]}px;
+`;

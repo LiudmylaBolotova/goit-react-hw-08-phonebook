@@ -27,29 +27,31 @@ export const addContact = createAsyncThunk(
   }
 );
 
-// export const updateContact = createAsyncThunk(
-//   'contacts/updateContact',
-//   async(contactId, credentials) => {
-//     try {
-//       const { responce } = await axios.patch(`/contacts/${contactId}`, credentials );
-//       return responce;
-//     } catch (error) {
-//       return (error.message);
-//     }
-//   }
-// );
-
 export const updateContact = createAsyncThunk(
   'contacts/updateContact',
-  async (id, credentials) => {
+  async ( contactId, { credentials }, thunkAPI) => {
     try {
-      const res = await API.updateContact(id, credentials);
-      return res.data;
-    } catch (error) {
-      return error.message;
+      const responce = await axios.patch(`/contacts/${contactId}`, credentials);
+      return responce.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
+
+
+// export const updateContact = createAsyncThunk(
+//   'contacts/updateContact',
+//   async ({ contactId, credentials }, thunkAPI) => {
+
+//     try {
+//       const res = await API.updateContact(contactId, credentials);
+//       return res.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',

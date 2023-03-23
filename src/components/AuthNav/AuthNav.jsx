@@ -1,15 +1,15 @@
-import {ItemsLink} from './AuthNav.styled'
+import {ItemsLink, ListAuth} from './AuthNav.styled'
 
 
 export const AuthNav = () => {
   return (
-    <div>
+    <ListAuth>
       <ItemsLink to="/register">
         Register
       </ItemsLink>
       <ItemsLink to="/login">
         Log In
       </ItemsLink>
-    </div>
+    </ListAuth>
   );
 };

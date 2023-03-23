@@ -8,7 +8,8 @@ export const Form = styled.form`
 
   border: ${p => p.theme.borders.normal};
   border-radius: ${p => p.theme.radii.formRound}px;
-  width: ${p => p.theme.sizes.width[4]}px;
+  width: ${p => p.theme.sizes.width[5]}px;
+  margin-top: ${p => p.theme.space[4]}px;
   background-color: ${p => p.theme.colors.twoBackgroundColor};
 `;
 

@@ -6,10 +6,12 @@ export const Form = styled.form`
   align-items: center;
   margin-right: auto;
   margin-left: auto;
+  margin-top: ${p => p.theme.space[4]}px;
 
   border: ${p => p.theme.borders.normal};
   border-radius: ${p => p.theme.radii.formRound}px;
-  width: ${p => p.theme.sizes.width[4]}px;
+  
+  width: ${p => p.theme.sizes.width[5]}px;
   padding: 20px;
   background-color: ${p => p.theme.colors.twoBackgroundColor};
 `;

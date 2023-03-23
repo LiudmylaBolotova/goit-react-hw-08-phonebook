@@ -32,6 +32,7 @@ const ElementList = () => {
       setIsModalOpen(true);
     }
   };
+  
 
   useEffect(() => {
     const controller = new AbortController();

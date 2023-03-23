@@ -24,10 +24,10 @@ export async function addContact({ name, number }) {
   return res.data;
 }
 
-export async function updateContact(id, credentials) {
-  const { data } = await axios.patch(`/contacts/${id}`, credentials);
-  return data;
-}
+// export async function updateContact(contactId, credentials) {
+//   const { data } = await axios.patch(`/contacts/${contactId}`, credentials);
+//   return data;
+// }
 
 export async function deleteContact(contactId) {
   const res = await axios.delete(`/contacts/${contactId}`);
