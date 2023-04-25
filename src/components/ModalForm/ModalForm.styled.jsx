@@ -31,6 +31,7 @@ export const InputModalForm = styled.input`
 export const TitleModalForm = styled.h2`
   font-size: ${p => p.theme.fontSizes[1]}px;
   margin: ${p => p.theme.space[3]}px;
+  color: ${p => p.theme.colors.text};
 `;
 
 export const BtnModalForm = styled.button`

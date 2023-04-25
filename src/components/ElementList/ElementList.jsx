@@ -15,14 +15,6 @@ const ElementList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isActiveContact, setIsActiveContact] = useState(0);
 
-  const activeContact = contacts.find(
-    contact => contact.id === isActiveContact
-  );
-
-  const makeActiveContact = id => {
-    setIsActiveContact(id);
-  };
-
   const toggleOpen = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -32,7 +24,10 @@ const ElementList = () => {
       setIsModalOpen(true);
     }
   };
-  
+
+  const makeActiveContact = id => {
+    setIsActiveContact(id);
+  };
 
   useEffect(() => {
     const controller = new AbortController();
@@ -51,7 +46,7 @@ const ElementList = () => {
     <>
       {findContacts.length > 0 ? (
         findContacts.map(({ name, number, id }) => (
-          <Element key={id} onClick={() => makeActiveContact(id)}>
+          <Element key={id}>
             <Avatar
               color={Avatar.getRandomColor('sitebase', [
                 'LightSeaGreen',
@@ -62,7 +57,13 @@ const ElementList = () => {
               round={true}
             />
             {name}: {number}
-            <BtnList type="submit" onClick={openModalContact}>
+            <BtnList
+              type="submit"
+              onClick={openModalContact}
+              onClickCapture={() => {
+                makeActiveContact(id);
+              }}
+            >
               Update
             </BtnList>
             <BtnList
@@ -75,7 +76,10 @@ const ElementList = () => {
             </BtnList>
             {isModalOpen && (
               <Modal onClose={toggleOpen}>
-                <ModalForm activeContact={activeContact} onClose={toggleOpen}/>
+                <ModalForm
+                  activeContact={isActiveContact}
+                  onClose={toggleOpen}
+                />
               </Modal>
             )}
           </Element>

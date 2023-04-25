@@ -17,9 +17,9 @@ export const fetchContacts = createAsyncThunk(
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
-  async ({ name, number }, { rejectWithValue }) => {
+  async (credentials, { rejectWithValue }) => {
     try {
-      const addContact = await API.addContact({ name, number });
+      const addContact = await API.addContact(credentials);
       return addContact;
     } catch (err) {
       return rejectWithValue(err.response.data);
@@ -27,31 +27,30 @@ export const addContact = createAsyncThunk(
   }
 );
 
-export const updateContact = createAsyncThunk(
-  'contacts/updateContact',
-  async ( contactId, { credentials }, thunkAPI) => {
-    try {
-      const responce = await axios.patch(`/contacts/${contactId}`, credentials);
-      return responce.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
-
-
 // export const updateContact = createAsyncThunk(
 //   'contacts/updateContact',
-//   async ({ contactId, credentials }, thunkAPI) => {
-
+//   async({contactId, credentials}, { rejectWithValue }) => {
 //     try {
-//       const res = await API.updateContact(contactId, credentials);
-//       return res.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
+//       const updateContact = await API.updateContact(contactId, credentials );
+
+//       return updateContact;
+//     } catch (err) {
+//       return rejectWithValue(err.response.data);
 //     }
 //   }
 // );
+
+export const updateContact = createAsyncThunk(
+  'contacts/updateContact',
+  async ( contactId, credentials , thunkAPI) => {
+    try {
+      const response = await axios.patch(`/contacts/${contactId}`, credentials);
+      return response.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);
 
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',

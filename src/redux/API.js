@@ -19,15 +19,15 @@ export async function fetchContacts() {
   return data;
 }
 
-export async function addContact({ name, number }) {
-  const res = await axios.post(`/contacts`, { name, number });
+export async function addContact(credentials) {
+  const res = await axios.post(`/contacts`, credentials);
   return res.data;
 }
 
-// export async function updateContact(contactId, credentials) {
-//   const { data } = await axios.patch(`/contacts/${contactId}`, credentials);
-//   return data;
-// }
+export async function updateContact({contactId, credentials}) {
+  const res = await axios.patch(`/contacts/${contactId}`, credentials);
+  return res.data;
+}
 
 export async function deleteContact(contactId) {
   const res = await axios.delete(`/contacts/${contactId}`);

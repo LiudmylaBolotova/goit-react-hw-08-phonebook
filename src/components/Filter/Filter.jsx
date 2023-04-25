@@ -13,14 +13,11 @@ const Filter = () => {
     const value = event.target.value.trim();
 
     dispatch(setFilter(value));
-    
   };
 
   const onClear = () => {
     ref.current.value = '';
-    
   };
-
 
   return (
     <div>
