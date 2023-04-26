@@ -27,27 +27,14 @@ export const addContact = createAsyncThunk(
   }
 );
 
-// export const updateContact = createAsyncThunk(
-//   'contacts/updateContact',
-//   async({contactId, credentials}, { rejectWithValue }) => {
-//     try {
-//       const updateContact = await API.updateContact(contactId, credentials );
-
-//       return updateContact;
-//     } catch (err) {
-//       return rejectWithValue(err.response.data);
-//     }
-//   }
-// );
-
 export const updateContact = createAsyncThunk(
   'contacts/updateContact',
-  async ( contactId, credentials , thunkAPI) => {
+  async(contactId, credentials) => {
     try {
-      const response = await axios.patch(`/contacts/${contactId}`, credentials);
-      return response.data;
+      const updateContact = await API.updateContact(contactId, credentials);
+      return updateContact;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return err.message;
     }
   }
 );

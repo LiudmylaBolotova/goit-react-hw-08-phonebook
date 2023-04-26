@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 export const StyledOverlay = styled.div`
-   position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -10,16 +10,15 @@ export const StyledOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(142, 142, 139, 0.5);
- 
-
+  background-color: rgba(138, 138, 135, 0.26);
 `;
 
 export const StyledModal = styled.div`
   background-color: aliceblue;
-  max-width: calc(100vw - 50px);
-  max-height: calc(100vh - 30px);
+  max-width: calc(100vw - 30px);
+  max-height: calc(100vh - 20px);
   border-radius: ${p => p.theme.radii.round}px;
+  position: absolute;
 `;
 
 export const StyledAiOutlineCloseCircle = styled(AiOutlineCloseCircle)`
@@ -28,7 +27,7 @@ export const StyledAiOutlineCloseCircle = styled(AiOutlineCloseCircle)`
   color: ${p => p.theme.colors.accent};
   position: relative;
   bottom: 28%;
-  left: 36%;
+  left: 15%;
+  z-index: 333;
   cursor: pointer;
 `;
-

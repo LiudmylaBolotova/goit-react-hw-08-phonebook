@@ -24,18 +24,20 @@ function ModalForm({ activeContact, onClose }) {
   const [newName, setNewName] = useState(filteredContacts.name);
   const [newNumber, setNewNumber] = useState(filteredContacts.number);
 
+  const contactId = filteredContacts.id;
+
   const handleSubmitModalForm = event => {
     event.preventDefault();
 
     dispatch(
-      contactsOperations.updateContact(filteredContacts.id, {
+      contactsOperations.updateContact(contactId, {
         name: newName,
         number: newNumber,
       })
     );
 
     // onClose();
-   
+
     console.log();
   };
 
@@ -56,7 +58,7 @@ function ModalForm({ activeContact, onClose }) {
         <label>
           <InputModalForm
             type="text"
-            name="name"
+            name="newName"
             value={newName}
             onChange={onChangeName}
             // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -68,7 +70,7 @@ function ModalForm({ activeContact, onClose }) {
         <label>
           <InputModalForm
             type="tel"
-            name="number"
+            name="newNumber"
             value={newNumber}
             onChange={onChangeNumber}
             // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
