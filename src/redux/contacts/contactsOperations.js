@@ -1,52 +1,60 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as API from '../API';
-import axios from 'axios';
+
 // Contact
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
-  async (_, { rejectWithValue }) => {
+  async (_, thunkAPI) => {
     try {
       const contacts = await API.fetchContacts();
       return contacts;
-    } catch (err) {
-      return rejectWithValue(err.response.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
-  async (credentials, { rejectWithValue }) => {
+  async (credentials, thunkAPI) => {
     try {
       const addContact = await API.addContact(credentials);
       return addContact;
-    } catch (err) {
-      return rejectWithValue(err.response.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export const updateContact = createAsyncThunk(
   'contacts/updateContact',
-  async(contactId, credentials) => {
+  async (contactId, { name: newName, number: newNumber }, thunkAPI) => {
+    console.log(contactId, {
+      name: newName,
+      number: newNumber,
+    });
     try {
-      const updateContact = await API.updateContact(contactId, credentials);
+      const updateContact = await API.updateContact(contactId, {
+        name: newName,
+        number: newNumber,
+      });
+
       return updateContact;
-    } catch (err) {
-      return err.message;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
-  async (contactId, { rejectWithValue }) => {
+  async (contactId, thunkAPI) => {
     try {
       const deleteContact = await API.deleteContact(contactId);
       return deleteContact;
-    } catch (err) {
-      return rejectWithValue(err.response.data);
+    } catch (error) {
+     return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

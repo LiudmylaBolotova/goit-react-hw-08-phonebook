@@ -17,6 +17,7 @@ function ModalForm({ activeContact, onClose }) {
   const dispatch = useDispatch();
 
   const contacts = useSelector(getContacts);
+
   const filteredContacts = contacts.find(
     contact => contact.id === activeContact
   );
@@ -28,17 +29,15 @@ function ModalForm({ activeContact, onClose }) {
 
   const handleSubmitModalForm = event => {
     event.preventDefault();
-
-    dispatch(
-      contactsOperations.updateContact(contactId, {
-        name: newName,
-        number: newNumber,
-      })
-    );
-
+dispatch(
+  contactsOperations.updateContact(contactId, {
+    name: newName,
+    number: newNumber,
+  })
+);
+   
+console.log(contactId, {name: newName, number: newNumber});
     // onClose();
-
-    console.log();
   };
 
   const onChangeName = event => {
