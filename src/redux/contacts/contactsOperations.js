@@ -29,16 +29,10 @@ export const addContact = createAsyncThunk(
 
 export const updateContact = createAsyncThunk(
   'contacts/updateContact',
-  async (contactId, { name: newName, number: newNumber }, thunkAPI) => {
-    console.log(contactId, {
-      name: newName,
-      number: newNumber,
-    });
+  async (contactId, credentials, thunkAPI) => {
+    console.log(contactId, credentials);
     try {
-      const updateContact = await API.updateContact(contactId, {
-        name: newName,
-        number: newNumber,
-      });
+      const updateContact = await API.updateContact(contactId, credentials);
 
       return updateContact;
     } catch (error) {

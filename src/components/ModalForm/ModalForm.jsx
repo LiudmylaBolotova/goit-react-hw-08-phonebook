@@ -26,17 +26,17 @@ function ModalForm({ activeContact, onClose }) {
   const [newNumber, setNewNumber] = useState(filteredContacts.number);
 
   const contactId = filteredContacts.id;
+  
+  const credentials = {
+    name: newName,
+    number: newNumber,
+  };
 
   const handleSubmitModalForm = event => {
     event.preventDefault();
-dispatch(
-  contactsOperations.updateContact(contactId, {
-    name: newName,
-    number: newNumber,
-  })
-);
-   
-console.log(contactId, {name: newName, number: newNumber});
+    dispatch(contactsOperations.updateContact(contactId, credentials));
+
+    console.log(contactId, credentials);
     // onClose();
   };
 
