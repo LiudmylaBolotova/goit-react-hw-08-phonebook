@@ -26,6 +26,7 @@ export const theme = {
     superSmall: '1px skyblue solid',
     small: '2px skyblue solid',
     normal: '4px skyblue solid',
+    dottedLine: '1px dashed blue',
   },
 
   radii: {

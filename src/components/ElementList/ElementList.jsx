@@ -3,7 +3,15 @@ import * as contactsOperations from '../../redux/contacts/contactsOperations';
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts, getFilter } from '../../redux/selectors';
 import { Modal } from '../Modal/Modal';
-import { BtnList, Element, ElementString } from './ElementList.styled';
+import {
+  BtnList,
+  StyledBtn,
+  Element,
+  ContactList,
+  ContactItem,
+  ElementString,
+} from './ElementList.styled';
+import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 import Avatar from 'react-avatar';
 import ModalForm from '../ModalForm/ModalForm';
 
@@ -56,23 +64,32 @@ const ElementList = () => {
               name={name}
               round={true}
             />
-            {name}: {number}
-            <BtnList
-              type="submit"
-              onClick={openModalContact}
-              onClickCapture={() => {
-                makeActiveContact(id);
-              }}
-            >
-              Update
-            </BtnList>
-            <BtnList
-              type="submit"
-              onClick={() => {
-                dispatch(contactsOperations.deleteContact(id));
-              }}
-            >
-              Delete
+            <ContactList>
+              <ContactItem>{name}:</ContactItem>
+              <ContactItem>{number}</ContactItem>
+            </ContactList>
+            <BtnList>
+              <li>
+                <StyledBtn
+                  type="submit"
+                  onClick={openModalContact}
+                  onClickCapture={() => {
+                    makeActiveContact(id);
+                  }}
+                >
+                  <AiOutlineEdit />
+                </StyledBtn>
+              </li>
+              <li>
+                <StyledBtn
+                  type="submit"
+                  onClick={() => {
+                    dispatch(contactsOperations.deleteContact(id));
+                  }}
+                >
+                  <AiOutlineDelete />
+                </StyledBtn>
+              </li>
             </BtnList>
             {isModalOpen && (
               <Modal onClose={toggleOpen}>

@@ -18,16 +18,16 @@ export const StyledModal = styled.div`
   max-width: calc(100vw - 30px);
   max-height: calc(100vh - 20px);
   border-radius: ${p => p.theme.radii.round}px;
-  position: absolute;
 `;
 
 export const StyledAiOutlineCloseCircle = styled(AiOutlineCloseCircle)`
   width: ${p => p.theme.sizes.width[0]}px;
   height: ${p => p.theme.sizes.height[0]}px;
   color: ${p => p.theme.colors.accent};
-  position: relative;
-  bottom: 28%;
-  left: 15%;
+  display: block;
+  position: absolute;
+  bottom: 73%;
+  left: 62%;
   z-index: 333;
   cursor: pointer;
 `;
