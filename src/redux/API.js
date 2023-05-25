@@ -24,8 +24,11 @@ export async function addContact(credentials) {
   return res.data;
 }
 
-export async function updateContact(contactId, credentials) {
-  const res = await axios.patch(`/contacts/${contactId}`, credentials);
+export async function updateContact({contactId, name, number }) {
+  const res = await axios.patch(`/contacts/${contactId}`, {
+    name,
+    number,
+  });
   return res.data;
 }
 

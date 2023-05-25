@@ -73,12 +73,12 @@ const contactsSlice = createSlice({
       state.contacts.isLoading = false;
       state.contacts.error = null;
 
-      // const contact = state.contacts.items.find(
-      //   contact => contact.id === action.payload.id
-      // );
+      const contact = state.contacts.items.find(
+        contact => contact.id === action.payload.id
+      );
       console.log(action.payload);
-      // contact.name = action.payload.name;
-      // contact.number = action.payload.number;
+      contact.name = action.payload.name;
+      contact.number = action.payload.number;
     },
 
     [updateContact.rejected]: (state, action) => {

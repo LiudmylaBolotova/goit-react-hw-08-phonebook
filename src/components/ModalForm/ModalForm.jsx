@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // import { GrFormClose } from 'react-icons/gr';
 import { useDispatch } from 'react-redux';
 import * as contactsOperations from '../../redux/contacts/contactsOperations';
@@ -22,32 +22,34 @@ function ModalForm({ activeContact, onClose }) {
     contact => contact.id === activeContact
   );
 
-  const [newName, setNewName] = useState(filteredContacts.name);
-  const [newNumber, setNewNumber] = useState(filteredContacts.number);
+  const [name, setName] = useState(filteredContacts.name);
+  const [number, setNumber] = useState(filteredContacts.number);
 
   const contactId = filteredContacts.id;
-  
-  const credentials = {
-    name: newName,
-    number: newNumber,
-  };
+  console.log(name, number);
+  // const credentials = {
+  //   name: newName,
+  //   number: newNumber,
+  // };
 
-  const handleSubmitModalForm = event => {
+  const handleSubmitModalForm = (event) => {
     event.preventDefault();
-    dispatch(contactsOperations.updateContact(contactId, credentials));
-
-    console.log(contactId, credentials);
-    // onClose();
-  };
+    const form = event.currentTarget;
+    const name = form.elements.name.value;
+    const number = form.elements.number.value;
+    
+    dispatch(contactsOperations.updateContact({ contactId, name, number }));
+    console.log(name, number);
+  }
 
   const onChangeName = event => {
     event.preventDefault();
-    setNewName(event.target.value);
+    setName(event.target.value);
   };
 
   const onChangeNumber = event => {
     event.preventDefault();
-    setNewNumber(event.target.value);
+    setNumber(event.target.value);
   };
 
   return (
@@ -57,8 +59,8 @@ function ModalForm({ activeContact, onClose }) {
         <label>
           <InputModalForm
             type="text"
-            name="newName"
-            value={newName}
+            name="name"
+            value={name}
             onChange={onChangeName}
             // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
@@ -69,8 +71,8 @@ function ModalForm({ activeContact, onClose }) {
         <label>
           <InputModalForm
             type="tel"
-            name="newNumber"
-            value={newNumber}
+            name="number"
+            value={number}
             onChange={onChangeNumber}
             // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             // title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
