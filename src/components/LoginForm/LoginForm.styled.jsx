@@ -10,7 +10,7 @@ export const Form = styled.form`
 
   border: ${p => p.theme.borders.normal};
   border-radius: ${p => p.theme.radii.formRound}px;
-  
+
   width: ${p => p.theme.sizes.width[5]}px;
   padding: 20px;
   background-color: ${p => p.theme.colors.twoBackgroundColor};
@@ -38,7 +38,6 @@ export const TitleForm = styled.label`
   align-items: center;
   margin-bottom: 10px;
   font-size: ${p => p.theme.fontSizes[1]}px;
-
 `;
 
 export const BtnForm = styled.button`
@@ -65,4 +64,3 @@ export const BtnForm = styled.button`
     color: ${p => p.theme.colors.twoTextColor};
   }
 `;
-

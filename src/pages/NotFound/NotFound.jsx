@@ -1,7 +1,11 @@
+import { StyledNotFound, StyledNotification } from './NotFound.styled';
+
 const NotFound = () => {
-    return (
-        <div>Not Found(:</div>
-    )
+  return (
+    <StyledNotFound>
+      <StyledNotification>Not Found :(</StyledNotification>
+    </StyledNotFound>
+  );
 };
 
 export default NotFound;

@@ -14,7 +14,8 @@ export const StyledOverlay = styled.div`
 `;
 
 export const StyledModal = styled.div`
-  background-color: aliceblue;
+  position: fixed;
+  background-color: ${p => p.theme.colors.twoBackgroundColor};
   max-width: calc(100vw - 30px);
   max-height: calc(100vh - 20px);
   border-radius: ${p => p.theme.radii.round}px;
@@ -24,10 +25,10 @@ export const StyledAiOutlineCloseCircle = styled(AiOutlineCloseCircle)`
   width: ${p => p.theme.sizes.width[0]}px;
   height: ${p => p.theme.sizes.height[0]}px;
   color: ${p => p.theme.colors.accent};
-  display: block;
+
   position: absolute;
-  bottom: 73%;
-  left: 62%;
+  bottom: 80%;
+  left: 69%;
   z-index: 333;
   cursor: pointer;
 `;

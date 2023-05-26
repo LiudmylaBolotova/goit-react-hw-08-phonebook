@@ -14,14 +14,14 @@ export const RegisterForm = () => {
     const password = form.elements.password.value;
     if (!name) {
       return toast.error('Enter your name!');
-    };
+    }
     if (!email) {
       return toast.error('Enter your email!');
-    };
+    }
     if (!password) {
       return toast.error('Enter your password!');
     }
-    
+
     dispatch(
       signupUser({
         name: form.elements.name.value,

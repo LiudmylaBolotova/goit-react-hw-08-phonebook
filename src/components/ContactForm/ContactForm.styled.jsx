@@ -58,4 +58,3 @@ export const BtnForm = styled.button`
     color: ${p => p.theme.colors.twoTextColor};
   }
 `;
-

@@ -1,11 +1,22 @@
 import styled from 'styled-components';
 
+export const StyledFilter = styled.div`
+  display: block;
+`;
+
+export const StyledText = styled.h1`
+  font-size: ${p => p.theme.fontSizes[1]}px;
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: ${p => p.theme.space[5]}px;
+`;
+
 export const InputForm = styled.input`
   border: ${p => p.theme.borders.small};
   border-radius: ${p => p.theme.radii.round}px;
   color: ${p => p.theme.colors.text};
 
-  width: ${p => p.theme.sizes.width[3]}px;
+  width: ${p => p.theme.sizes.width[4]}px;
   height: ${p => p.theme.sizes.height[1]}px;
 
   :active,
@@ -23,7 +34,7 @@ export const ButtonFilter = styled.button`
   border: ${p => p.theme.borders.small};
   border-radius: ${p => p.theme.radii.round}px;
 
-  margin-top: ${p => p.theme.space[5]}px;
+  margin-top: ${p => p.theme.space[4]}px;
   margin-bottom: ${p => p.theme.space[5]}px;
 
   cursor: pointer;

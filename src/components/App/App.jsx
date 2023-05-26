@@ -1,4 +1,4 @@
-import {lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
@@ -22,7 +22,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(refreshUser());
-  }, [ dispatch]);
+  }, [dispatch]);
 
   return isRefreshing ? (
     <p>Fetching user data...</p>
@@ -30,8 +30,8 @@ const App = () => {
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-            <Route index element={<Home />} />
-            <Route path="/user" element={<User />}/>
+          <Route index element={<Home />} />
+          <Route path="/user" element={<User />} />
           <Route
             path="/register"
             element={
@@ -50,10 +50,9 @@ const App = () => {
           <Route
             path="/contacts"
             element={
-              <PrivateRoute component={<Contacts />} redirectTo='/login' />
+              <PrivateRoute component={<Contacts />} redirectTo="/login" />
             }
           />
-
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

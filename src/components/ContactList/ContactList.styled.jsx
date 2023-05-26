@@ -10,5 +10,6 @@ export const List = styled.ul`
 
   width: ${p => p.theme.sizes.width[5]}px;
   padding: 10px;
+  margin-top: 0;
   background-color: ${p => p.theme.colors.twoBackgroundColor};
 `;

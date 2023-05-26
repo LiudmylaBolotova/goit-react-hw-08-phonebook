@@ -8,7 +8,7 @@ export const StyledModalForm = styled.form`
 
   border: ${p => p.theme.borders.normal};
   border-radius: ${p => p.theme.radii.formRound}px;
-  width: ${p => p.theme.sizes.width[4]}px;
+  width: ${p => p.theme.sizes.width[5]}px;
   background-color: ${p => p.theme.colors.twoBackgroundColor};
 `;
 
@@ -58,4 +58,3 @@ export const BtnModalForm = styled.button`
     color: ${p => p.theme.colors.twoTextColor};
   }
 `;
-

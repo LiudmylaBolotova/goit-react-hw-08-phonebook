@@ -5,7 +5,6 @@ const Register = () => {
     <div>
       <title>Registration</title>
       <RegisterForm />
-      {/* toast.success('Successful registration!'); */}
     </div>
   );
 };

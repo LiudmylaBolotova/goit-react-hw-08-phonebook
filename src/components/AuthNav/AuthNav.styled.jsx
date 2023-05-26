@@ -7,7 +7,7 @@ export const ItemsLink = styled(NavLink)`
   font-size: ${p => p.theme.fontSizes[1]}px;
   font-weight: ${p => p.theme.fontWeights.bold};
   color: ${p => p.theme.colors.text};
-  
+
   &:first-child {
     margin-right: 20px;
   }

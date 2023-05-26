@@ -2,7 +2,11 @@ import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilter } from 'redux/contacts/filterSlice';
 import { getFilter } from '../../redux/selectors';
-import { InputForm, ButtonFilter } from './Filter.styled';
+import {
+  StyledFilter,
+  StyledText, InputForm,
+  ButtonFilter,
+} from './Filter.styled';
 
 const Filter = () => {
   const ref = useRef(null);
@@ -20,7 +24,8 @@ const Filter = () => {
   };
 
   return (
-    <div>
+    <StyledFilter>
+      <StyledText>Find a contact</StyledText>
       <InputForm
         type="text"
         name="filter"
@@ -31,7 +36,7 @@ const Filter = () => {
       <ButtonFilter type="button" onClick={onClear}>
         Clear
       </ButtonFilter>
-    </div>
+    </StyledFilter>
   );
 };
 
