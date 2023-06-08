@@ -15,15 +15,7 @@ const User = () => {
       }}
     >
       <StyledUser>
-        <Avatar
-          color={Avatar.getRandomColor('sitebase', [
-            'LightSeaGreen',
-            'BlueViolet',
-            'DeepSkyBlue',
-          ])}
-          name={user.name}
-          round={true}
-        />
+        <Avatar name={user.name} round={true} />
         <ItemUser>Name: {user.name}</ItemUser>
         <ItemUser>Email: {user.email}</ItemUser>
       </StyledUser>

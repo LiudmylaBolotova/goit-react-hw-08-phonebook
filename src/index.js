@@ -13,7 +13,16 @@ import { PersistGate } from 'redux-persist/integration/react';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <ConfigProvider>
+      <ConfigProvider
+        colors={[
+          'Crimson',
+          'DarkOrchid',
+          'Lime',
+          'DeepSkyBlue',
+          'Violet',
+          'Orange',
+        ]}
+      >
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <BrowserRouter basename="/goit-react-hw-08-phonebook">

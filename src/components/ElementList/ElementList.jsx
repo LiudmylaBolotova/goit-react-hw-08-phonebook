@@ -55,15 +55,7 @@ const ElementList = () => {
       {findContacts.length > 0 ? (
         findContacts.map(({ name, number, id }) => (
           <Element key={id}>
-            <Avatar
-              color={Avatar.getRandomColor('sitebase', [
-                'LightSeaGreen',
-                'BlueViolet',
-                'DeepSkyBlue',
-              ])}
-              name={name}
-              round={true}
-            />
+            <Avatar name={name} round={true} />
             <ContactList>
               <ContactItem>{name}:</ContactItem>
               <ContactItem>{number}</ContactItem>
