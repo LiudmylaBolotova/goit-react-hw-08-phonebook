@@ -4,7 +4,8 @@ import { setFilter } from 'redux/contacts/filterSlice';
 import { getFilter } from '../../redux/selectors';
 import {
   StyledFilter,
-  StyledText, InputForm,
+  StyledText,
+  InputForm,
   ButtonFilter,
 } from './Filter.styled';
 

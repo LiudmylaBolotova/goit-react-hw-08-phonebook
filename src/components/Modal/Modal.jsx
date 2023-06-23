@@ -33,5 +33,6 @@ export function Modal({ onClose, children }) {
 }
 
 Modal.propTypes = {
+  children: propTypes.oneOfType([propTypes.string, propTypes.object]),
   onClose: propTypes.func.isRequired,
 };

@@ -3,17 +3,17 @@ import { Toaster } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import Loader from 'pages/Loader/Loader';
+import Loader from 'components/Loader/Loader';
 import { refreshUser } from 'redux/auth/userOperations';
 import { PrivateRoute } from '../PrivateRoute';
 import { RestrictedRoute } from '../RestrictedRoute';
 
-const SharedLayout = lazy(() => import('pages/SharedLayout/SharedLayout'));
+const SharedLayout = lazy(() => import('components/SharedLayout/SharedLayout'));
 const Home = lazy(() => import('pages/Home'));
 const User = lazy(() => import('../User/User'));
 const Register = lazy(() => import('pages/Register/Register'));
 const Login = lazy(() => import('pages/Login/Login'));
-const Contacts = lazy(() => import('pages/Contacts/Contacts'));
+const Contacts = lazy(() => import('components/Contacts/Contacts'));
 const NotFound = lazy(() => import('pages/NotFound/NotFound'));
 
 const App = () => {

@@ -1,5 +1,5 @@
 import { useAuth } from '../../hooks/useAuth';
-import backGroundUser from './backGroundUser.jpg';
+import backGroundUser from '../Images/backGroundUser.jpg';
 import { StyledSection, StyledUser, ItemUser } from './User.styled';
 import Avatar from 'react-avatar';
 

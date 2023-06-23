@@ -36,8 +36,8 @@ export const TitleForm = styled.label`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
-  font-size: ${p => p.theme.fontSizes[1]}px;
+
+  margin: ${p => p.theme.space[3]}px;
 `;
 
 export const BtnForm = styled.button`
