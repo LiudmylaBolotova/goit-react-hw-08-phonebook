@@ -6,4 +6,3 @@ export const getError = state => state.contacts.contacts.error;
 export const getIsLoggedIn = state => state.user.isLoggedIn;
 export const getUser = state => state.user.user;
 export const getIsRefreshing = state => state.user.isRefreshing;
-
