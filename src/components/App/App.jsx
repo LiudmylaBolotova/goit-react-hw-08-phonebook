@@ -10,7 +10,7 @@ import { RestrictedRoute } from '../RestrictedRoute';
 
 const SharedLayout = lazy(() => import('components/SharedLayout/SharedLayout'));
 const Home = lazy(() => import('pages/Home'));
-const User = lazy(() => import('../User/User'));
+const User = lazy(() => import('../../pages/User/User'));
 const Register = lazy(() => import('pages/Register/Register'));
 const Login = lazy(() => import('pages/Login/Login'));
 const Contacts = lazy(() => import('components/Contacts/Contacts'));
